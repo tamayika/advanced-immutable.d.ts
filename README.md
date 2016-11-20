@@ -63,6 +63,13 @@ But moduleResolution must be `classic` to avoid loading `node_modules/immutable/
 }
 ```
 
+# Why not publish to DefinitelyTyped?
+
+This definition is very useful and safer than original.
+
+But this definition restriction is not the same as ImmutableJS restriction.
+(i.e. ImmutableJS does not handle value type of map) 
+
 # More Example
 
 See [test/record.ts](test/record.ts)
