@@ -3,9 +3,12 @@ import * as Immutable from "immutable";
 class Person {
     name: string;
     age: number;
+    gender?: "male" | "female";
 }
 
-var record = Immutable.Record<Person>({ name: "Alice", age: 12 });
+var record = Immutable.Record<Person>({ name: "Alice", age: 12, gender: undefined });
+// var record = Immutable.Record<Person>({ name: "Alice", age: 12 }); // error: lack gender property
+// var record = Immutable.Record<Person>({ name: "Alice", age: 12, gender: "animal" }); // error: type unmatch
 var myRecord = new record();
 
 // get

@@ -1464,8 +1464,12 @@ declare namespace Immutable {
     defaultValues: {[key: string]: any}, name?: string
   ): Record.Class;
 
+  type Unpartial<T> = {
+    [P in keyof T]: T[P]
+  }
+
   export function Record<T>(
-    defaultValues: T, name?: string
+    defaultValues:  Unpartial<T>, name?: string
   ): Record.TypedClass<T>;
 
 

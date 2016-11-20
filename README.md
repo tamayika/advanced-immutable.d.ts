@@ -72,4 +72,4 @@ But this definition restriction is not the same as ImmutableJS restriction.
 
 # More Example
 
-See [test/record.ts](test/record.ts)
+See [tests/record.ts](tests/record.ts)
