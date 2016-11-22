@@ -31,3 +31,19 @@ myRecord = myRecord.merge({ name: "aaa", age: 10 }); // ok
 myRecord = myRecord.update("age", age => age + 1); // ok
 // myRecord.update("aga", age => age + 1); // error: typo
 // myRecord.update("age", age => age.toString()); // error: type unmatch
+
+/* extended record not work
+ * this is bacause record is TypedRecord<Person>
+ * and TypedRecord<Person> is not interface.
+ * If you don't need getter accessor, it will work
+ * 
+ * // index.d.ts
+ * 1744:       export type TypedRecord<T> = TypedMap2<T, Readonly<T>> & Readonly<T>;
+ * to
+ * 1744:       export type TypedRecord<T> = TypedMap<T>;
+ * 
+ * I hope TypeScript support mapped types in interface ^_^
+ */
+//class ExtendedRecord extends record {
+//
+//}
