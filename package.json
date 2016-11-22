@@ -5,7 +5,11 @@
   "dependencies": {
     "@types/immutable": "file:types-local\\immutable",
     "immutable": "^3.8.1",
-    "types-local": "^0.1.3"
+    "types-local": "^0.1.3",
+    "typescript": "^2.2.0-dev.20161122"
+  },
+  "scripts": {
+    "test": "tsc && node bin/record.js && echo 'OK'"
   },
   "author": "tamayika",
   "license": "ISC"

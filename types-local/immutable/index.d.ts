@@ -747,7 +747,7 @@ declare namespace Immutable {
      * Returns a new Map also containing the new key, value pair. If an equivalent
      * key already exists in this Map, it will be replaced.
      */
-    set<K extends keyof T>(key: K, value: T[K]): TypedMap<T>;
+    set<K extends keyof T>(key: K, value: T[K]): this;
 
     /**
      * Returns a new Map which excludes this `key`.
@@ -756,13 +756,13 @@ declare namespace Immutable {
      * the ES6 collection API.
      * @alias remove
      */
-    delete<K extends keyof T>(key: K): TypedMap<T>;
-    remove<K extends keyof T>(key: K): TypedMap<T>;
+    delete<K extends keyof T>(key: K): this;
+    remove<K extends keyof T>(key: K): this;
 
     /**
      * Returns a new Map containing no keys or values.
      */
-    clear<K extends keyof T>(): TypedMap<T>;
+    clear<K extends keyof T>(): this;
 
     /**
      * Returns a new Map having updated the value at this `key` with the return
@@ -772,9 +772,9 @@ declare namespace Immutable {
      *
      * Equivalent to: `map.set(key, updater(map.get(key, notSetValue)))`.
      */
-    update<K extends keyof T>(updater: (value: TypedMap<T>) => TypedMap<T>): TypedMap<T>;
-    update<K extends keyof T>(key: K, updater: (value: T[K]) => T[K]): TypedMap<T>;
-    update<K extends keyof T>(key: K, notSetValue: T[K], updater: (value: T[K]) => T[K]): TypedMap<T>;
+    update<K extends keyof T>(updater: (value: TypedMap<T>) => TypedMap<T>): this;
+    update<K extends keyof T>(key: K, updater: (value: T[K]) => T[K]): this;
+    update<K extends keyof T>(key: K, notSetValue: T[K], updater: (value: T[K]) => T[K]): this;
 
     /**
      * Returns a new Map resulting from merging the provided Iterables
@@ -793,9 +793,9 @@ declare namespace Immutable {
      *     y.merge(x) // { b: 20, a: 10, d: 60, c: 30 }
      *
      */
-    merge<K extends keyof T>(...iterables: Iterable<K, T[K]>[]): TypedMap<T>;
-    merge(...iterables: TypedIterable<T>[]): TypedMap<T>;
-    merge<K extends keyof T>(...iterables: Partial<T>[]): TypedMap<T>;
+    merge<K extends keyof T>(...iterables: Iterable<K, T[K]>[]): this;
+    merge(...iterables: TypedIterable<T>[]): this;
+    merge<K extends keyof T>(...iterables: Partial<T>[]): this;
 
     /**
      * Like `merge()`, `mergeWith()` returns a new Map resulting from merging
@@ -811,15 +811,15 @@ declare namespace Immutable {
     mergeWith<K extends keyof T>(
       merger: (previous: T[K], next: T[K], key: K) => T[K],
       ...iterables: Iterable<K, T[K]>[]
-    ): TypedMap<T>;
+    ): this;
     mergeWith<K extends keyof T>(
       merger: (previous: T[K], next: T[K], key: K) => T[K],
       ...iterables: TypedIterable<T>[]
-    ): TypedMap<T>;
+    ): this;
     mergeWith<K extends keyof T>(
       merger: (previous: T[K], next: T[K], key: K) => T[K],
       ...iterables: Partial<T>[]
-    ): TypedMap<T>;
+    ): this;
 
     /**
      * Like `merge()`, but when two Iterables conflict, it merges them as well,
@@ -830,9 +830,9 @@ declare namespace Immutable {
      *     x.mergeDeep(y) // {a: { x: 2, y: 10 }, b: { x: 20, y: 5 }, c: { z: 3 } }
      *
      */
-    mergeDeep<K extends keyof T>(...iterables: Iterable<K, T[K]>[]): TypedMap<T>;
-    mergeDeep(...iterables: TypedIterable<T>[]): TypedMap<T>;
-    mergeDeep<K extends keyof T>(...iterables: Partial<T>[]): TypedMap<T>;
+    mergeDeep<K extends keyof T>(...iterables: Iterable<K, T[K]>[]): this;
+    mergeDeep(...iterables: TypedIterable<T>[]): this;
+    mergeDeep<K extends keyof T>(...iterables: Partial<T>[]): this;
 
     /**
      * Like `mergeDeep()`, but when two non-Iterables conflict, it uses the
@@ -847,15 +847,15 @@ declare namespace Immutable {
     mergeDeepWith<K extends keyof T>(
       merger: (previous: T[K], next: T[K], key: K) => T[K],
       ...iterables: Iterable<K, T[K]>[]
-    ): TypedMap<T>;
+    ): this;
     mergeDeepWith<K extends keyof T>(
       merger: (previous: T[K], next: T[K], key: K) => T[K],
       ...iterables: TypedIterable<T>[]
-    ): TypedMap<T>;
+    ): this;
     mergeDeepWith<K extends keyof T>(
       merger: (previous: T[K], next: T[K], key: K) => T[K],
       ...iterables: Partial<T>[]
-    ): TypedMap<T>;
+    ): this;
 
 
     // Deep persistent changes
@@ -864,8 +864,8 @@ declare namespace Immutable {
      * Returns a new Map having set `value` at this `keyPath`. If any keys in
      * `keyPath` do not exist, a new immutable Map will be created at that key.
      */
-    setIn(keyPath: Array<any>, value: any): TypedMap<T>;
-    setIn(KeyPath: Iterable<any, any>, value: any): TypedMap<T>;
+    setIn(keyPath: Array<any>, value: any): this;
+    setIn(KeyPath: Iterable<any, any>, value: any): this;
 
     /**
      * Returns a new Map having removed the value at this `keyPath`. If any keys
@@ -873,10 +873,10 @@ declare namespace Immutable {
      *
      * @alias removeIn
      */
-    deleteIn(keyPath: Array<any>): TypedMap<T>;
-    deleteIn(keyPath: Iterable<any, any>): TypedMap<T>;
-    removeIn(keyPath: Array<any>): TypedMap<T>;
-    removeIn(keyPath: Iterable<any, any>): TypedMap<T>;
+    deleteIn(keyPath: Array<any>): this;
+    deleteIn(keyPath: Iterable<any, any>): this;
+    removeIn(keyPath: Array<any>): this;
+    removeIn(keyPath: Iterable<any, any>): this;
 
     /**
      * Returns a new Map having applied the `updater` to the entry found at the
@@ -902,21 +902,21 @@ declare namespace Immutable {
     updateIn(
       keyPath: Array<any>,
       updater: (value: any) => any
-    ): TypedMap<T>;
+    ): this;
     updateIn(
       keyPath: Array<any>,
       notSetValue: any,
       updater: (value: any) => any
-    ): TypedMap<T>;
+    ): this;
     updateIn(
       keyPath: Iterable<any, any>,
       updater: (value: any) => any
-    ): TypedMap<T>;
+    ): this;
     updateIn(
       keyPath: Iterable<any, any>,
       notSetValue: any,
       updater: (value: any) => any
-    ): TypedMap<T>;
+    ): this;
 
     /**
      * A combination of `updateIn` and `merge`, returning a new Map, but
@@ -930,23 +930,23 @@ declare namespace Immutable {
     mergeIn<K extends keyof T>(
       keyPath: Iterable<any, any>,
       ...iterables: Iterable<K, T[K]>[]
-    ): TypedMap<T>;
+    ): this;
     mergeIn<K extends keyof T>(
       keyPath: Array<any>,
       ...iterables: Iterable<K, T[K]>[]
-    ): TypedMap<T>;
+    ): this;
     mergeIn(
       keyPath: Iterable<any, any>,
       ...iterables: TypedIterable<T>[]
-    ): TypedMap<T>;
+    ): this;
     mergeIn(
       keyPath: Array<any>,
       ...iterables: TypedIterable<T>[]
-    ): TypedMap<T>;
+    ): this;
     mergeIn<K extends keyof T>(
       keyPath: Array<any>,
       ...iterables: Partial<T>[]
-    ): TypedMap<T>;
+    ): this;
 
     /**
      * A combination of `updateIn` and `mergeDeep`, returning a new Map, but
@@ -960,23 +960,23 @@ declare namespace Immutable {
     mergeDeepIn<K extends keyof T>(
       keyPath: Iterable<any, any>,
       ...iterables: Iterable<K, T[K]>[]
-    ): TypedMap<T>;
+    ): this;
     mergeDeepIn<K extends keyof T>(
       keyPath: Array<any>,
       ...iterables: Iterable<K, T[K]>[]
-    ): TypedMap<T>;
+    ): this;
     mergeDeepIn(
       keyPath: Iterable<any, any>,
       ...iterables: TypedIterable<T>[]
-    ): TypedMap<T>;
+    ): this;
     mergeDeepIn(
       keyPath: Array<any>,
       ...iterables: TypedIterable<T>[]
-    ): TypedMap<T>;
+    ): this;
     mergeDeepIn<K extends keyof T>(
       keyPath: Array<any>,
       ...iterables: Partial<T>[]
-    ): TypedMap<T>;
+    ): this;
 
 
     // Transient changes
@@ -1005,8 +1005,8 @@ declare namespace Immutable {
      * `withMutations`! Only `set` and `merge` may be used mutatively.
      *
      */
-    withMutations<K extends keyof T>(mutator: (mutable: Map<K, T[K]>) => any): TypedMap<T>;
-    withMutations(mutator: (mutable: TypedMap<T>) => any): TypedMap<T>;
+    withMutations<K extends keyof T>(mutator: (mutable: Map<K, T[K]>) => any): this;
+    withMutations(mutator: (mutable: TypedMap<T>) => any): this;
 
     /**
      * Another way to avoid creation of intermediate Immutable maps is to create
@@ -1021,14 +1021,14 @@ declare namespace Immutable {
      * Note: Not all methods can be used on a mutable collection or within
      * `withMutations`! Only `set` and `merge` may be used mutatively.
      */
-    asMutable(): TypedMap<T>;
+    asMutable(): this;
 
     /**
      * The yin to `asMutable`'s yang. Because it applies to mutable collections,
      * this operation is *mutable* and returns itself. Once performed, the mutable
      * copy has become immutable and can be safely returned from a function.
      */
-    asImmutable(): TypedMap<T>;
+    asImmutable(): this;
   }
 
 
@@ -1449,14 +1449,16 @@ declare namespace Immutable {
       (values: Iterable<string, any>): Map<string, any>; // deprecated
     }
     
-    export interface TypedClass<T> {
-      new (): TypedMap<T>;
-      new (values: T): TypedMap<T>;
-      new (values: Iterable<string, any>): TypedMap<T>; // deprecated
+    export type TypedRecord<T> = TypedMap<T> & Readonly<T>;
 
-      (): TypedMap<T>;
-      (values: T): TypedMap<T>;
-      (values: Iterable<string, any>): TypedMap<T>; // deprecated
+    export interface TypedClass<T> {
+      new (): TypedRecord<T>;
+      new (values: T): TypedRecord<T>;
+      new (values: Iterable<string, any>): TypedRecord<T>; // deprecated
+
+      (): TypedRecord<T>;
+      (values: T): TypedRecord<T>;
+      (values: Iterable<string, any>): TypedRecord<T>; // deprecated
     }
   }
 
