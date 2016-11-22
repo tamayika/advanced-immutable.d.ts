@@ -6,6 +6,8 @@ forked from [https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/immu
 # Requirements
 
 * TypeScript 2.1.3 or above
+  * [MappedTypes](https://github.com/Microsoft/TypeScript/pull/12114)
+  * [keyof T and T[K]](https://github.com/Microsoft/TypeScript/pull/11929)
 * ImmutableJS 3.8.1
 
 # What's advanced?
@@ -22,9 +24,9 @@ class Person {
 var record = Immutable.Record({ name: "Alice", age: 12 });
 var myRecord = new record();
 
-myRecord.set("age", 10); // ok
+myRecord = myRecord.set("age", 10); // ok
 myRecord.get("age").toFixed(); // => "10"
-myRecord.set("age", "Alice"); // ok but type wrong
+myRecord = myRecord.set("age", "Alice"); // ok but type wrong
 myRecord.get("age") + 1; // TypeError: "Alice1".toFixed is not a function
 ```
 
@@ -44,9 +46,9 @@ class Person {
 var record = Immutable.Record<Person>({ name: "Alice", age: 12 }); // only here modified
 var myRecord = new record();
 
-myRecord.set("age", 10); // ok
+myRecord = myRecord.set("age", 10); // ok
 myRecord.get("age").toFixed(); // => "10"
-myRecord.set("age", "Alice"); // TypeScript Error: Argument of type '"Alice"' is not assignable to parameter of type 'number'.
+myRecord = myRecord.set("age", "Alice"); // TypeScript Error: Argument of type '"Alice"' is not assignable to parameter of type 'number'.
 ```
 
 Only generics was specified, but you can get error in typescript compilation.
