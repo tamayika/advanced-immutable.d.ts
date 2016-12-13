@@ -3,13 +3,15 @@ import * as Immutable from "immutable";
 interface Person {
     name: string;
     age: number;
-    gender?: "male" | "female";
+    gender: undefined | "male" | "female";
 }
 
 var record = Immutable.Record<Person>({ name: "Alice", age: 12, gender: undefined });
 // var record = Immutable.Record<Person>({ name: "Alice", age: 12 }); // error: lack gender property
 // var record = Immutable.Record<Person>({ name: "Alice", age: 12, gender: "animal" }); // error: type unmatch
 var myRecord = new record();
+myRecord = myRecord.set('gender', 'male');
+console.log(myRecord.get('gender'));
 
 // get
 let name = myRecord.get("name"); // string
