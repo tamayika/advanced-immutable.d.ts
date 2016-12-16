@@ -6,9 +6,6 @@
         "lib": [
             "es6"
         ],
-        "types": [
-            "immutable"
-        ],
         "typeRoots": [
             "./node_modules/@types",
             "./types-local/"
