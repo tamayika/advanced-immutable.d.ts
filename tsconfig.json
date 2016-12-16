@@ -2,10 +2,12 @@
     "compilerOptions": {
         "strictNullChecks": true,
         "module": "commonjs",
-        "moduleResolution": "classic",
         "target": "es6",
         "lib": [
             "es6"
+        ],
+        "types": [
+            "immutable"
         ],
         "sourceMap": true,
         "newLine": "LF",
