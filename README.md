@@ -58,12 +58,15 @@ Only generics was specified, but you can get error in typescript compilation.
 Copy [types-local/immutable/index.d.ts](types-local/immutable/index.d.ts) content.
 
 If you use types-local, copy entire types-local directory.
-But types must be used to avoid loading `node_modules/immutable/dist/immutable-nonambient.d.ts`
+But baseUrl and paths must be used to avoid loading `node_modules/immutable/dist/immutable-nonambient.d.ts`
 ```json
 {
-    "types": [
-        "immutable"
-    ]
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "immutable": ["types-local/immutable"]
+        }
+    }
 }
 ```
 
