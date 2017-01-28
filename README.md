@@ -5,9 +5,10 @@ advanced-immutable.d.ts is advanced type definition for [ImmutableJS](https://fa
 forked from [https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/immutable/immutable.d.ts](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/immutable/immutable.d.ts)
 # Requirements
 
-* TypeScript 2.1.4 or above
+* TypeScript 2.2.0 or above
   * [MappedTypes](https://github.com/Microsoft/TypeScript/pull/12114)
   * [keyof T and T[K]](https://github.com/Microsoft/TypeScript/pull/11929)
+  * [Mixin patterns](https://github.com/Microsoft/TypeScript/pull/13604)
 * ImmutableJS 3.8.1
 
 # What's advanced?
